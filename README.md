@@ -45,7 +45,9 @@ npm run preview
 
 Run `npm test` for the fixed date arithmetic and server-render checks. These use fixed instants for countdown edges; they do not change the computer clock.
 
-The production site is the static `dist/` directory. Deploy that directory to any static host such as GitHub Pages, Netlify, or Cloudflare Pages, then share the deployed link. Keep `public/photos/` and `public/audio/` with the project so the photo and music assets are included in the build.
+The production site is the static `dist/` directory. For the repository named `11-11`, the Vite production base is `/11-11/` so scripts, styles, photos, and the MP3 resolve from its GitHub Pages project URL. Local development still uses `/`.
+
+GitHub Pages is configured through `.github/workflows/deploy.yml`. Push the project to the `main` branch, then in **Settings → Pages → Build and deployment → Source**, choose **GitHub Actions**. The workflow runs `npm ci`, builds `dist/`, and deploys that directory. Keep `public/photos/` and `public/audio/` in the repository; `dist/` is generated and `node_modules/` should not be uploaded.
 
 ## Accessibility and behavior
 

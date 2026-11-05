@@ -41,6 +41,10 @@ export interface BirthdayContent {
   storyChapters: StoryChapter[]
 }
 
+// Vite sets BASE_URL to `/11-11/` in production builds; the fallback keeps
+// direct config validation and local development rooted at `/`.
+const publicBaseUrl = import.meta.env?.BASE_URL ?? '/'
+
 /**
  * The three ISO timestamps include the explicit IST offset (+05:30). Their
  * instant is therefore stable even when this static site is opened elsewhere.
@@ -57,7 +61,7 @@ export const birthdayContent: BirthdayContent = {
   firstOnlineConnection: 'Snapchat',
   platforms: ['Instagram', 'Snapchat'],
   locationLabels: ['ME', 'YOU'],
-  musicSource: '/audio/palka-pe-rakhu.mp3',
+  musicSource: `${publicBaseUrl}audio/palka-pe-rakhu.mp3`,
   musicTitle: 'Palka Pe Rakhu ♡',
   heroTitle: 'TO MY 11:11',
   heroSubtitle: 'Two places. One connection. One favourite person.',
@@ -136,12 +140,12 @@ export const birthdayContent: BirthdayContent = {
     'You are someone’s favourite notification.'
   ],
   memoryPhotos: [
-    { src: '/photos/memory-01.jpg', caption: 'A little glimpse, kept close.', alt: 'Close-up portrait' },
-    { src: '/photos/memory-02.jpg', caption: 'A little colour, a little you.', alt: 'Portrait among bright pink flowers' },
-    { src: '/photos/memory-03.jpg', caption: 'One of my favourite photos of you.', alt: 'Portrait in a teal top' },
-    { src: '/photos/memory-04.jpg', caption: 'A glimpse into your world.', alt: 'Portrait at a beautifully lit temple' },
-    { src: '/photos/memory-05.jpg', caption: 'A few sunny-day snapshots.', alt: 'Photo collage from a day out' },
-    { src: '/photos/memory-06.jpg', caption: 'Little moments from your adventures.', alt: 'Photo collage from a visit to the Opera House' }
+    { src: `${publicBaseUrl}photos/memory-01.jpg`, caption: 'A little glimpse, kept close.', alt: 'Close-up portrait' },
+    { src: `${publicBaseUrl}photos/memory-02.jpg`, caption: 'A little colour, a little you.', alt: 'Portrait among bright pink flowers' },
+    { src: `${publicBaseUrl}photos/memory-03.jpg`, caption: 'One of my favourite photos of you.', alt: 'Portrait in a teal top' },
+    { src: `${publicBaseUrl}photos/memory-04.jpg`, caption: 'A glimpse into your world.', alt: 'Portrait at a beautifully lit temple' },
+    { src: `${publicBaseUrl}photos/memory-05.jpg`, caption: 'A few sunny-day snapshots.', alt: 'Photo collage from a day out' },
+    { src: `${publicBaseUrl}photos/memory-06.jpg`, caption: 'Little moments from your adventures.', alt: 'Photo collage from a visit to the Opera House' }
   ],
   memoryCaptions: [
     'One of my favourite little moments.',
